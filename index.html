@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- displays site properly based on user's device -->
+  
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
 
@@ -97,23 +97,142 @@
       scrollbar-width: 5px
     }
 
-    /* Base styling */
+    
     :root {
-      --neutral-900: hsl(227, 75%, 14%);
-      --neutral-800: hsl(226, 25%, 17%);
-      --neutral-700: hsl(225, 23%, 24%);
-      --neutral-600: hsl(226, 11%, 37%);
-      --neutral-300: hsl(0, 0%, 78%);
-      --neutral-200: hsl(217, 61%, 90%);
-      --neutral-100: hsl(0, 0%, 93%);
-      --neutral-0: hsl(200, 60%, 99%);
+      
+      --ocean-neutral-900: hsl(215, 45%, 15%);
+      --ocean-neutral-800: hsl(214, 30%, 25%);
+      --ocean-neutral-700: hsl(213, 25%, 32%);
+      --ocean-neutral-600: hsl(212, 20%, 45%);
+      --ocean-neutral-300: hsl(210, 15%, 80%);
+      --ocean-neutral-200: hsl(210, 20%, 92%);
+      --ocean-neutral-100: hsl(210, 25%, 96%);
+      --ocean-neutral-0: hsl(210, 30%, 99%);
+      --ocean-accent-400: hsl(195, 80%, 55%);
+      --ocean-accent-500: hsl(195, 75%, 45%);
+      --ocean-accent-700: hsl(195, 70%, 35%);
+      --ocean-light-gradient: linear-gradient(180deg, hsl(210, 50%, 98%) 0%, hsl(200, 60%, 95%) 100%);
+      --ocean-dark-gradient: linear-gradient(180deg, hsl(215, 60%, 10%) 0%, hsl(220, 55%, 18%) 100%);
 
-      --red-400: hsl(3, 86%, 64%);
-      --red-500: hsl(3, 71%, 56%);
-      --red-700: hsl(3, 77%, 44%);
+      
+      --amethyst-neutral-900: hsl(260, 35%, 15%);
+      --amethyst-neutral-800: hsl(260, 25%, 22%);
+      --amethyst-neutral-700: hsl(260, 20%, 30%);
+      --amethyst-neutral-600: hsl(260, 15%, 45%);
+      --amethyst-neutral-300: hsl(260, 10%, 80%);
+      --amethyst-neutral-200: hsl(260, 15%, 92%);
+      --amethyst-neutral-100: hsl(260, 20%, 96%);
+      --amethyst-neutral-0: hsl(260, 25%, 99%);
+      --amethyst-accent-400: hsl(280, 75%, 65%);
+      --amethyst-accent-500: hsl(280, 70%, 55%);
+      --amethyst-accent-700: hsl(280, 65%, 45%);
+      --amethyst-light-gradient: linear-gradient(180deg, hsl(260, 30%, 97%) 0%, hsl(270, 40%, 95%) 100%);
+      --amethyst-dark-gradient: linear-gradient(180deg, hsl(265, 50%, 10%) 0%, hsl(255, 45%, 18%) 100%);
 
-      --light-gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
-      --dark-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+      
+      --emerald-neutral-900: hsl(150, 30%, 12%);
+      --emerald-neutral-800: hsl(150, 25%, 18%);
+      --emerald-neutral-700: hsl(150, 20%, 25%);
+      --emerald-neutral-600: hsl(150, 15%, 40%);
+      --emerald-neutral-300: hsl(150, 10%, 80%);
+      --emerald-neutral-200: hsl(150, 15%, 92%);
+      --emerald-neutral-100: hsl(150, 20%, 96%);
+      --emerald-neutral-0: hsl(150, 25%, 99%);
+      --emerald-accent-400: hsl(140, 70%, 50%);
+      --emerald-accent-500: hsl(140, 65%, 40%);
+      --emerald-accent-700: hsl(140, 60%, 30%);
+      --emerald-light-gradient: linear-gradient(180deg, hsl(140, 40%, 97%) 0%, hsl(160, 50%, 95%) 100%);
+      --emerald-dark-gradient: linear-gradient(180deg, hsl(145, 40%, 10%) 0%, hsl(155, 35%, 16%) 100%);
+
+      
+      --sunset-neutral-900: hsl(15, 35%, 15%);
+      --sunset-neutral-800: hsl(15, 30%, 22%);
+      --sunset-neutral-700: hsl(15, 25%, 30%);
+      --sunset-neutral-600: hsl(15, 20%, 45%);
+      --sunset-neutral-300: hsl(15, 15%, 80%);
+      --sunset-neutral-200: hsl(15, 20%, 92%);
+      --sunset-neutral-100: hsl(15, 25%, 96%);
+      --sunset-neutral-0: hsl(15, 30%, 99%);
+      --sunset-accent-400: hsl(25, 90%, 60%);
+      --sunset-accent-500: hsl(25, 85%, 50%);
+      --sunset-accent-700: hsl(25, 80%, 40%);
+      --sunset-light-gradient: linear-gradient(180deg, hsl(35, 100%, 97%) 0%, hsl(25, 100%, 95%) 100%);
+      --sunset-dark-gradient: linear-gradient(180deg, hsl(15, 75%, 10%) 0%, hsl(25, 70%, 15%) 100%);
+
+      
+      --bubblegum-neutral-900: hsl(330, 30%, 15%);
+      --bubblegum-neutral-800: hsl(330, 25%, 25%);
+      --bubblegum-neutral-700: hsl(330, 20%, 32%);
+      --bubblegum-neutral-600: hsl(330, 15%, 45%);
+      --bubblegum-neutral-300: hsl(330, 10%, 80%);
+      --bubblegum-neutral-200: hsl(330, 15%, 92%);
+      --bubblegum-neutral-100: hsl(330, 20%, 96%);
+      --bubblegum-neutral-0: hsl(330, 25%, 99%);
+      --bubblegum-accent-400: hsl(345, 80%, 65%);
+      --bubblegum-accent-500: hsl(345, 75%, 55%);
+      --bubblegum-accent-700: hsl(345, 70%, 45%);
+      --bubblegum-light-gradient: linear-gradient(180deg, hsl(330, 100%, 97%) 0%, hsl(345, 100%, 95%) 100%);
+      --bubblegum-dark-gradient: linear-gradient(180deg, hsl(330, 50%, 10%) 0%, hsl(345, 45%, 15%) 100%);
+
+      
+      --neon-neutral-900: hsl(250, 60%, 10%);
+      --neon-neutral-800: hsl(250, 50%, 15%);
+      --neon-neutral-700: hsl(250, 40%, 20%);
+      --neon-neutral-600: hsl(250, 30%, 35%);
+      --neon-neutral-300: hsl(250, 20%, 75%);
+      --neon-neutral-200: hsl(250, 30%, 90%);
+      --neon-neutral-100: hsl(250, 40%, 95%);
+      --neon-neutral-0: hsl(250, 50%, 99%);
+      --neon-accent-400: hsl(320, 100%, 65%);
+      --neon-accent-500: hsl(320, 100%, 55%);
+      --neon-accent-700: hsl(320, 100%, 45%);
+      --neon-light-gradient: linear-gradient(180deg, hsl(250, 100%, 95%) 0%, hsl(280, 100%, 90%) 100%);
+      --neon-dark-gradient: linear-gradient(180deg, hsl(250, 100%, 5%) 0%, hsl(280, 90%, 10%) 100%);
+
+      
+      --coffee-neutral-900: hsl(25, 40%, 10%);
+      --coffee-neutral-800: hsl(25, 35%, 15%);
+      --coffee-neutral-700: hsl(25, 30%, 22%);
+      --coffee-neutral-600: hsl(25, 25%, 35%);
+      --coffee-neutral-300: hsl(25, 20%, 75%);
+      --coffee-neutral-200: hsl(25, 30%, 90%);
+      --coffee-neutral-100: hsl(25, 40%, 95%);
+      --coffee-neutral-0: hsl(25, 50%, 99%);
+      --coffee-accent-400: hsl(35, 80%, 55%);
+      --coffee-accent-500: hsl(35, 75%, 45%);
+      --coffee-accent-700: hsl(35, 70%, 35%);
+      --coffee-light-gradient: linear-gradient(180deg, hsl(35, 30%, 96%) 0%, hsl(25, 40%, 90%) 100%);
+      --coffee-dark-gradient: linear-gradient(180deg, hsl(25, 30%, 8%) 0%, hsl(20, 35%, 12%) 100%);
+
+      
+      --nordic-neutral-900: hsl(210, 25%, 10%);
+      --nordic-neutral-800: hsl(210, 20%, 15%);
+      --nordic-neutral-700: hsl(210, 15%, 22%);
+      --nordic-neutral-600: hsl(210, 10%, 35%);
+      --nordic-neutral-300: hsl(210, 5%, 75%);
+      --nordic-neutral-200: hsl(210, 10%, 90%);
+      --nordic-neutral-100: hsl(210, 15%, 95%);
+      --nordic-neutral-0: hsl(210, 20%, 99%);
+      --nordic-accent-400: hsl(190, 70%, 55%);
+      --nordic-accent-500: hsl(190, 65%, 45%);
+      --nordic-accent-700: hsl(190, 60%, 35%);
+      --nordic-light-gradient: linear-gradient(180deg, hsl(210, 30%, 98%) 0%, hsl(190, 40%, 94%) 100%);
+      --nordic-dark-gradient: linear-gradient(180deg, hsl(210, 30%, 8%) 0%, hsl(220, 25%, 12%) 100%);
+
+      
+      --neutral-900: var(--ocean-neutral-900);
+      --neutral-800: var(--ocean-neutral-800);
+      --neutral-700: var(--ocean-neutral-700);
+      --neutral-600: var(--ocean-neutral-600);
+      --neutral-300: var(--ocean-neutral-300);
+      --neutral-200: var(--ocean-neutral-200);
+      --neutral-100: var(--ocean-neutral-100);
+      --neutral-0: var(--ocean-neutral-0);
+      --accent-400: var(--ocean-accent-400);
+      --accent-500: var(--ocean-accent-500);
+      --accent-700: var(--ocean-accent-700);
+      --light-gradient: var(--ocean-light-gradient);
+      --dark-gradient: var(--ocean-dark-gradient);
     }
 
     * {
@@ -128,13 +247,15 @@
       max-width: 1125px;
       margin: 0 auto;
       padding: 0 20px;
-      display: grid;
+      display: flex;
+      flex-direction: column;
       gap: 2rem;
       margin-block: 2rem;
 
+      min-height: 100dvh;
     }
 
-    /* Theme-specific styles */
+    
     body[data-theme='dark'] {
       background-image: var(--dark-gradient);
       color: var(--neutral-0);
@@ -146,7 +267,7 @@
     }
 
 
-    /* Theme toggler icon visibility */
+    
     body[data-theme='dark'] .theme-toggle__icon--light {
       display: none;
     }
@@ -155,11 +276,13 @@
       display: none;
     }
 
-    /* Header */
+    
     .header {
 
       display: flex;
       justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
       padding: 0.75rem 1rem;
       border-radius: 1rem;
       background-color: var(--neutral-0);
@@ -168,6 +291,9 @@
 
       @media (width < 640px) {
         padding: 0.5rem 0.5rem;
+
+        flex-direction: column;
+
       }
     }
 
@@ -192,6 +318,7 @@
       border: none;
       border-radius: 0.5rem;
       background-color: var(--neutral-100);
+
       cursor: pointer;
 
       &:hover {
@@ -202,12 +329,12 @@
 
 
 
-    /* Main content */
+    
     .main {
       width: 100%;
     }
 
-    /* Extensions header section */
+    
     .extensions-header {
       display: flex;
       justify-content: space-between;
@@ -253,16 +380,16 @@
     }
 
     .extensions-filter__button.active {
-      background-color: var(--red-700);
+      background-color: var(--accent-700);
       color: var(--neutral-0);
 
       &:hover {
-        background-color: var(--red-500);
+        background-color: var(--accent-500);
       }
     }
 
 
-    /* Extensions grid */
+    
     .extensions-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -271,17 +398,21 @@
 
     }
 
-    /* Extension card */
+    
     .extension {
-      background-color: var(--neutral-0);
+      background-image: linear-gradient(to bottom right,
+          var(--neutral-0),
+          color-mix(in srgb, var(--neutral-0) 95%, var(--accent-400) 5%));
       height: 200px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding: 1rem;
       border: 1px solid var(--neutral-100);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      border-radius: 0.75rem;
+      box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.05),
+        0 1px 3px rgba(0, 0, 0, 0.1);
+      border-radius: 1rem;
 
       @media (width < 640px) {
         height: 175px;
@@ -333,9 +464,15 @@
       padding: 0.5rem 1rem;
       color: var(--neutral-900);
       border: 1px solid var(--neutral-300);
-      border-radius: 9999px;
+      border-radius: 1.5rem;
       cursor: pointer;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
 
       @media (width < 640px) {
         padding: 0.25rem 0.75rem;
@@ -343,11 +480,11 @@
     }
 
     .extension__remove-button:hover {
-      background-color: var(--red-700);
+      background-color: var(--accent-700);
       color: var(--neutral-0);
     }
 
-    /* Toggle switch */
+    
     .toggle {
       display: inline-flex;
       align-items: center;
@@ -383,7 +520,7 @@
     }
 
     .toggle__input:checked+.toggle__slider {
-      background-color: var(--red-500);
+      background-color: var(--accent-500);
     }
 
     .toggle__input:checked+.toggle__slider::after {
@@ -408,7 +545,7 @@
       border-width: 0;
     }
 
-    /* Footer */
+    
     .attribution {
       font-size: 11px;
       text-align: center;
@@ -419,7 +556,7 @@
       color: hsl(228, 45%, 44%);
     }
 
-    /* Responsive layout */
+    
     @media (max-width: 1024px) {
       .extensions-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -442,11 +579,14 @@
 
     body[data-theme='dark'] {
 
-      /* Header */
+      
       .header {
         --logo-color: var(--neutral-0);
 
-        background-color: var(--neutral-800);
+        background-color: transparent;
+        background-image: linear-gradient(to right,
+            var(--neutral-800),
+            color-mix(in srgb, var(--neutral-800) 90%, var(--accent-400) 10%));
       }
 
 
@@ -479,18 +619,20 @@
       }
 
       .extensions-filter__button.active {
-        background-color: var(--red-400);
+        background-color: var(--accent-400);
         color: var(--neutral-900);
 
         &:hover {
-          background-color: var(--red-500);
+          background-color: var(--accent-500);
         }
       }
 
 
-      /* Extension card */
+      
       .extension {
-        background-color: var(--neutral-800);
+        background-image: linear-gradient(to bottom right,
+            var(--neutral-900),
+            color-mix(in srgb, var(--neutral-900) 95%, var(--accent-400) 5%));
 
         border: 1px solid var(--neutral-700);
         box-shadow: 0 1px 3px hsla(0, 0, 100%, 0.1);
@@ -514,7 +656,7 @@
       }
 
       .extension__remove-button:hover {
-        background-color: var(--red-400);
+        background-color: var(--accent-400);
         color: var(--neutral-900);
       }
 
@@ -531,7 +673,7 @@
       }
 
       .toggle__input:checked+.toggle__slider {
-        background-color: var(--red-500);
+        background-color: var(--accent-500);
       }
 
       .toggle__input:checked+.toggle__slider::after {
@@ -545,7 +687,7 @@
       }
 
 
-      /* Footer */
+      
       .attribution {
         font-size: 11px;
         text-align: center;
@@ -557,6 +699,143 @@
       }
 
 
+    }
+
+    .theme-selector {
+      position: relative;
+    }
+
+    .theme-selector__dropdown {
+      appearance: none;
+      background-color: var(--neutral-100);
+      border: 1px solid var(--neutral-300);
+      border-radius: 0.5rem;
+      padding: 0.4rem 2rem 0.4rem 0.8rem;
+      font-size: 0.875rem;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.5rem center;
+      background-size: 1rem;
+      transition: all 0.2s ease;
+    }
+
+    .theme-selector__dropdown:hover {
+      background-color: var(--neutral-200);
+    }
+
+    .theme-selector__dropdown:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5);
+    }
+
+    body[data-theme='dark'] .theme-selector__dropdown {
+      background-color: var(--neutral-700);
+      color: var(--neutral-100);
+      border-color: var(--neutral-600);
+    }
+
+    body[data-theme='dark'] .theme-selector__dropdown:hover {
+      background-color: var(--neutral-600);
+    }
+
+    body[data-theme='light'] [data-color-theme='ocean'] .extension {
+      background-image: linear-gradient(to bottom right,
+          var(--neutral-0),
+          color-mix(in srgb, var(--neutral-0) 92%, var(--accent-400) 8%));
+    }
+
+    body[data-theme='dark'] [data-color-theme='ocean'] .extension {
+      background-image: linear-gradient(to bottom right,
+          var(--neutral-800),
+          color-mix(in srgb, var(--neutral-900) 90%, var(--accent-400) 10%));
+    }
+
+    body[data-theme='light'] [data-color-theme='amethyst'] .extension {
+      background-image: linear-gradient(to bottom right,
+          var(--neutral-0),
+          color-mix(in srgb, var(--neutral-0) 92%, var(--accent-400) 8%));
+    }
+
+    body[data-theme='dark'] [data-color-theme='amethyst'] .extension {
+      background-image: linear-gradient(135deg,
+          var(--neutral-800),
+          color-mix(in srgb, var(--neutral-800) 85%, var(--accent-400) 15%));
+    }
+
+    body[data-theme='light'] [data-color-theme='emerald'] .extension {
+      background-image: linear-gradient(to bottom right,
+          var(--neutral-0),
+          color-mix(in srgb, var(--neutral-0) 94%, var(--accent-400) 6%));
+    }
+
+    body[data-theme='dark'] [data-color-theme='emerald'] .extension {
+      background-image: linear-gradient(120deg,
+          var(--neutral-900),
+          color-mix(in srgb, var(--neutral-800) 85%, var(--accent-400) 15%));
+    }
+
+    body[data-theme='light'] [data-color-theme='sunset'] .extension {
+      background-image: linear-gradient(to bottom right,
+          var(--neutral-0),
+          color-mix(in srgb, var(--neutral-0) 90%, var(--accent-400) 10%));
+    }
+
+    body[data-theme='dark'] [data-color-theme='sunset'] .extension {
+      background-image: linear-gradient(150deg,
+          var(--neutral-900),
+          color-mix(in srgb, var(--neutral-800) 80%, var(--accent-400) 20%));
+    }
+
+    body[data-theme='light'] [data-color-theme='bubblegum'] .extension {
+      background-image: linear-gradient(to bottom right,
+          var(--neutral-0),
+          color-mix(in srgb, var(--neutral-0) 88%, var(--accent-400) 12%));
+    }
+
+    body[data-theme='dark'] [data-color-theme='bubblegum'] .extension {
+      background-image: linear-gradient(165deg,
+          var(--neutral-800),
+          color-mix(in srgb, var(--neutral-800) 80%, var(--accent-400) 20%));
+    }
+
+    body[data-theme='light'] [data-color-theme='neon'] .extension {
+      background-image: linear-gradient(to bottom right,
+          var(--neutral-0),
+          color-mix(in srgb, var(--neutral-0) 85%, var(--accent-400) 15%));
+      border: 1px solid color-mix(in srgb, var(--neutral-300) 70%, var(--accent-400) 30%);
+    }
+
+    body[data-theme='dark'] [data-color-theme='neon'] .extension {
+      background-image: linear-gradient(125deg,
+          var(--neutral-900),
+          color-mix(in srgb, var(--neutral-900) 75%, var(--accent-400) 25%));
+      border: 1px solid color-mix(in srgb, var(--neutral-700) 70%, var(--accent-400) 30%);
+      box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
+    }
+
+    body[data-theme='light'] [data-color-theme='coffee'] .extension {
+      background-image: linear-gradient(to bottom right,
+          var(--neutral-0),
+          color-mix(in srgb, var(--neutral-0) 90%, var(--accent-400) 10%));
+    }
+
+    body[data-theme='dark'] [data-color-theme='coffee'] .extension {
+      background-image: linear-gradient(145deg,
+          var(--neutral-900),
+          color-mix(in srgb, var(--neutral-800) 85%, var(--accent-400) 15%));
+    }
+
+    body[data-theme='light'] [data-color-theme='nordic'] .extension {
+      background-image: linear-gradient(to bottom right,
+          var(--neutral-0),
+          color-mix(in srgb, var(--neutral-0) 95%, var(--accent-400) 5%));
+    }
+
+    body[data-theme='dark'] [data-color-theme='nordic'] .extension {
+      background-image: linear-gradient(130deg,
+          var(--neutral-900),
+          color-mix(in srgb, var(--neutral-800) 90%, var(--accent-400) 10%));
     }
   </style>
 </head>
@@ -581,32 +860,46 @@
         </svg>
       </h2>
     </a>
-    <button id="themeToggler" class="header__theme-toggle">
-      <svg class="theme-toggle__icon theme-toggle__icon--light" xmlns="http://www.w3.org/2000/svg" width="22"
-        height="22" fill="none" viewBox="0 0 22 22">
-        <g clip-path="url(#a)">
-          <path stroke="#091540" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.98"
-            d="M20.125 11.877A7.333 7.333 0 1 1 10.124 1.875a9.168 9.168 0 1 0 10.001 10.002Z" />
-        </g>
-        <defs>
-          <clipPath id="a">
-            <path fill="#fff" d="M0 0h22v22H0z" />
-          </clipPath>
-        </defs>
-      </svg>
-      <svg class="theme-toggle__icon theme-toggle__icon--dark" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-        fill="none" viewBox="0 0 22 22">
-        <g clip-path="url(#a)">
-          <path stroke="#FBFDFE" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.98"
-            d="M11 1.833v1.834m0 14.666v1.834M3.667 11H1.833m3.955-5.212L4.492 4.492m11.72 1.296 1.297-1.296M5.788 16.215l-1.296 1.296m11.72-1.296 1.297 1.296M20.167 11h-1.834m-2.75 0a4.583 4.583 0 1 1-9.167 0 4.583 4.583 0 0 1 9.167 0Z" />
-        </g>
-        <defs>
-          <clipPath id="a">
-            <path fill="#fff" d="M0 0h22v22H0z" />
-          </clipPath>
-        </defs>
-      </svg>
-    </button>
+    <div style="display: flex;align-items: center; gap: 1rem;">
+      <button id="themeToggler" class="header__theme-toggle">
+        <svg class="theme-toggle__icon theme-toggle__icon--light" xmlns="http://www.w3.org/2000/svg" width="22"
+          height="22" fill="none" viewBox="0 0 22 22">
+          <g clip-path="url(#a)">
+            <path stroke="#091540" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.98"
+              d="M20.125 11.877A7.333 7.333 0 1 1 10.124 1.875a9.168 9.168 0 1 0 10.001 10.002Z" />
+          </g>
+          <defs>
+            <clipPath id="a">
+              <path fill="#fff" d="M0 0h22v22H0z" />
+            </clipPath>
+          </defs>
+        </svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--dark" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+          fill="none" viewBox="0 0 22 22">
+          <g clip-path="url(#a)">
+            <path stroke="#FBFDFE" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.98"
+              d="M11 1.833v1.834m0 14.666v1.834M3.667 11H1.833m3.955-5.212L4.492 4.492m11.72 1.296 1.297-1.296M5.788 16.215l-1.296 1.296m11.72-1.296 1.297 1.296M20.167 11h-1.834m-2.75 0a4.583 4.583 0 1 1-9.167 0 4.583 4.583 0 0 1 9.167 0Z" />
+          </g>
+          <defs>
+            <clipPath id="a">
+              <path fill="#fff" d="M0 0h22v22H0z" />
+            </clipPath>
+          </defs>
+        </svg>
+      </button>
+      <div class="theme-selector">
+        <select id="themeSelector" class="theme-selector__dropdown" aria-label="Select theme">
+          <option value="ocean">Ocean Breeze</option>
+          <option value="amethyst">Midnight Amethyst</option>
+          <option value="emerald">Forest Emerald</option>
+          <option value="sunset">Sunset Orange</option>
+          <option value="bubblegum">Bubblegum Pink</option>
+          <option value="neon">Neon Cyberpunk</option>
+          <option value="coffee">Coffee Mocha</option>
+          <option value="nordic">Nordic Frost</option>
+        </select>
+      </div>
+    </div>
   </header>
   <main class="main">
     <div class="extensions-header">
@@ -856,20 +1149,20 @@
         return;
       }
 
-      // Store extensions data in the global array
+      
       extensionsList.push(...extensions);
 
-      // Clear existing content in extensions grid
+      
       const extensionsGrid = document.querySelector('.extensions-grid');
       extensionsGrid.innerHTML = '';
 
-      // Render each extension
+      
       extensions.forEach(extension => {
         const extensionElement = createExtensionBox(extension);
         extensionsGrid.appendChild(extensionElement);
       });
 
-      // Initialize filter buttons
+      
       initializeFilterButtons();
     }
 
@@ -883,92 +1176,92 @@
      * @returns {HTMLElement} - The created extension element
      */
     function createExtensionBox(extension) {
-      // Create article element with class extension
+      
       const article = document.createElement('article');
       article.className = 'extension';
       article.dataset.extensionId = extension.id || extension.name.toLowerCase().replace(/\s/g, '-');
       article.dataset.active = extension.isActive ? 'true' : 'false';
 
-      // Create extension header
+      
       const header = document.createElement('div');
       header.className = 'extension__header';
 
-      // Create extension icon
+      
       const icon = document.createElement('img');
       icon.className = 'extension__icon';
       icon.src = extension.logo || '';
       icon.alt = `${extension.name} icon`;
 
-      // Create extension info container
+      
       const info = document.createElement('div');
       info.className = 'extension__info';
 
-      // Create extension title
+      
       const title = document.createElement('h3');
       title.className = 'extension__title';
       title.textContent = extension.name;
 
-      // Create extension description
+      
       const description = document.createElement('p');
       description.className = 'extension__description';
       description.textContent = extension.description;
 
-      // Append title and description to info container
+      
       info.appendChild(title);
       info.appendChild(description);
 
-      // Append icon and info to header
+      
       header.appendChild(icon);
       header.appendChild(info);
 
-      // Create extension footer
+      
       const footer = document.createElement('div');
       footer.className = 'extension__footer';
 
-      // Create remove button
+      
       const removeButton = document.createElement('button');
       removeButton.className = 'extension__remove-button';
       removeButton.textContent = 'Remove';
 
-      // Add event listener to remove button
+      
       removeButton.addEventListener('click', () => {
         removeExtension(article, extension);
       });
 
-      // Create toggle switch
+      
       const toggle = document.createElement('label');
       toggle.className = 'toggle';
 
-      // Create toggle input
+      
       const toggleInput = document.createElement('input');
       toggleInput.className = 'toggle__input';
       toggleInput.type = 'checkbox';
       toggleInput.checked = extension.isActive;
 
-      // Add event listener to toggle input
+      
       toggleInput.addEventListener('change', (event) => {
         toggleExtension(extension, event.target.checked, article);
       });
 
-      // Create toggle slider
+      
       const toggleSlider = document.createElement('div');
       toggleSlider.className = 'toggle__slider';
 
-      // Create toggle label (hidden)
+      
       const toggleLabel = document.createElement('span');
       toggleLabel.className = 'toggle__label';
       toggleLabel.textContent = 'Toggle extension';
 
-      // Append toggle elements
+      
       toggle.appendChild(toggleInput);
       toggle.appendChild(toggleSlider);
       toggle.appendChild(toggleLabel);
 
-      // Append remove button and toggle to footer
+      
       footer.appendChild(removeButton);
       footer.appendChild(toggle);
 
-      // Append header and footer to article
+      
       article.appendChild(header);
       article.appendChild(footer);
 
@@ -981,15 +1274,15 @@
      * @param {Object} extension - The extension data object.
      */
     function removeExtension(element, extension) {
-      // Remove all event listeners by cloning and replacing the element
+      
       const elementClone = element.cloneNode(true);
 
-      // Remove the element from the DOM
+      
       if (element.parentNode) {
         element.parentNode.removeChild(element);
       }
 
-      // Remove from extensions list
+      
       const index = extensionsList.findIndex(ext =>
         ext.id === extension.id || ext.name === extension.name
       );
@@ -1006,10 +1299,10 @@
      * @param {HTMLElement} element - The extension element in the DOM.
      */
     function toggleExtension(extension, isActive, element) {
-      // Update extension object
+      
       extension.isActive = isActive;
 
-      // Update data attribute on element
+      
       element.dataset.active = isActive ? 'true' : 'false';
     }
 
@@ -1022,17 +1315,17 @@
 
       filterButtons.forEach(button => {
 
-        // Add new event listener
+        
         button.addEventListener('click', () => {
-          // Remove active class from all buttons
+          
           filterButtons.forEach(btn => { btn.classList.remove('active'); });
-          // Add active class to clicked button
+          
           button.classList.add('active');
 
-          // Get filter type
+          
           const filterType = button.dataset.filterName;
 
-          // Update data-filter attribute on filter container
+          
           const filterContainer = document.querySelector('.extensions-filter');
           filterContainer.dataset.filter = filterType;
 
@@ -1063,27 +1356,67 @@
 
     document.addEventListener('DOMContentLoaded', function () {
       const themeToggler = document.getElementById('themeToggler');
+      const themeSelector = document.getElementById('themeSelector');
 
-      // Function to set the theme
-      const setTheme = (theme) => {
-        document.body.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
+      
+      const setColorMode = (mode) => {
+        document.body.setAttribute('data-theme', mode);
+        localStorage.setItem('colorMode', mode);
       };
 
-      // Check localStorage or system preference to set the initial theme
-      const storedTheme = localStorage.getItem('theme');
-      if (storedTheme) {
-        setTheme(storedTheme);
+      
+      const setColorTheme = (theme) => {
+        document.documentElement.setAttribute('data-color-theme', theme);
+        localStorage.setItem('colorTheme', theme);
+
+        
+        const root = document.documentElement;
+
+        
+        root.style.setProperty('--neutral-900', `var(--${theme}-neutral-900)`);
+        root.style.setProperty('--neutral-800', `var(--${theme}-neutral-800)`);
+        root.style.setProperty('--neutral-700', `var(--${theme}-neutral-700)`);
+        root.style.setProperty('--neutral-600', `var(--${theme}-neutral-600)`);
+        root.style.setProperty('--neutral-300', `var(--${theme}-neutral-300)`);
+        root.style.setProperty('--neutral-200', `var(--${theme}-neutral-200)`);
+        root.style.setProperty('--neutral-100', `var(--${theme}-neutral-100)`);
+        root.style.setProperty('--neutral-0', `var(--${theme}-neutral-0)`);
+        root.style.setProperty('--accent-400', `var(--${theme}-accent-400)`);
+        root.style.setProperty('--accent-500', `var(--${theme}-accent-500)`);
+        root.style.setProperty('--accent-700', `var(--${theme}-accent-700)`);
+        root.style.setProperty('--light-gradient', `var(--${theme}-light-gradient)`);
+        root.style.setProperty('--dark-gradient', `var(--${theme}-dark-gradient)`);
+      };
+
+      
+      const storedColorMode = localStorage.getItem('colorMode');
+      if (storedColorMode) {
+        setColorMode(storedColorMode);
       } else {
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        setTheme(prefersDark ? 'dark' : 'light');
+        setColorMode(prefersDark ? 'dark' : 'light');
       }
 
-      // Add click event listener to toggle the theme
+      
+      const storedColorTheme = localStorage.getItem('colorTheme');
+      if (storedColorTheme) {
+        setColorTheme(storedColorTheme);
+        themeSelector.value = storedColorTheme;
+      } else {
+        setColorTheme('ocean');
+        themeSelector.value = 'ocean';
+      }
+
+      
       themeToggler.addEventListener('click', () => {
-        const currentTheme = document.body.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
+        const currentColorMode = document.body.getAttribute('data-theme');
+        const newColorMode = currentColorMode === 'dark' ? 'light' : 'dark';
+        setColorMode(newColorMode);
+      });
+
+      
+      themeSelector.addEventListener('change', (e) => {
+        setColorTheme(e.target.value);
       });
     });
 
