@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Browser extensions manager UI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *:before,
+    *:after {
+      box-sizing: border-box
+    }
+
+    * {
+      margin: 0
+    }
+
+    body {
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased
+    }
+
+    img,
+    picture,
+    video,
+    canvas,
+    svg {
+      display: block;
+      max-width: 100%
+    }
+
+    input,
+    button,
+    textarea,
+    select {
+      font: inherit;
+      color: inherit
+    }
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      overflow-wrap: break-word
+    }
+
+    #root,
+    #__next {
+      isolation: isolate
+    }
+
+    button,
+    [type=button],
+    [role=button] {
+      text-decoration: none;
+      background-color: transparent;
+      border: 0;
+      outline: none;
+      font: inherit;
+      color: inherit;
+      cursor: pointer
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    ::-webkit-scrollbar {
+      width: 5px
+    }
+
+    ::-webkit-scrollbar-track {
+      background: inherit
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: gray;
+      border-radius: 100vh
+    }
+
+    :root {
+      scrollbar-color: gray;
+      scrollbar-width: 5px
+    }
+
+    /* Base styling */
+    :root {
+      --neutral-900: hsl(227, 75%, 14%);
+      --neutral-800: hsl(226, 25%, 17%);
+      --neutral-700: hsl(225, 23%, 24%);
+      --neutral-600: hsl(226, 11%, 37%);
+      --neutral-300: hsl(0, 0%, 78%);
+      --neutral-200: hsl(217, 61%, 90%);
+      --neutral-100: hsl(0, 0%, 93%);
+      --neutral-0: hsl(200, 60%, 99%);
+
+      --red-400: hsl(3, 86%, 64%);
+      --red-500: hsl(3, 71%, 56%);
+      --red-700: hsl(3, 77%, 44%);
+
+      --light-gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+      --dark-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Noto Sans", sans-serif;
+      font-optical-sizing: auto;
+      max-width: 1125px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      gap: 2rem;
+      margin-block: 2rem;
+
+    }
+
+    /* Theme-specific styles */
+    body[data-theme='dark'] {
+      background-image: var(--dark-gradient);
+      color: var(--neutral-0);
+    }
+
+    body[data-theme='light'] {
+      background-image: var(--light-gradient);
+      color: var(--neutral-900);
+    }
+
+
+    /* Theme toggler icon visibility */
+    body[data-theme='dark'] .theme-toggle__icon--light {
+      display: none;
+    }
+
+    body[data-theme='light'] .theme-toggle__icon--dark {
+      display: none;
+    }
+
+    /* Header */
+    .header {
+
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      border-radius: 1rem;
+      background-color: var(--neutral-0);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+
+      @media (width < 640px) {
+        padding: 0.5rem 0.5rem;
+      }
+    }
+
+
+    .header__logo {
+      height: 2.25rem;
+    }
+
+    .header__link,
+    .header__heading {
+      display: flex;
+      align-items: center;
+    }
+
+
+    .header__theme-toggle {
+      display: grid;
+      width: 2.75rem;
+      aspect-ratio: 1/1;
+      place-content: center;
+      padding: 6px;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: var(--neutral-100);
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--neutral-300);
+      }
+    }
+
+
+
+
+    /* Main content */
+    .main {
+      width: 100%;
+    }
+
+    /* Extensions header section */
+    .extensions-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+
+      @media (width < 640px) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .extensions-header__title {
+      font-size: 1.875rem;
+      font-weight: bold;
+
+      @media (width < 640px) {
+        font-size: 1.5rem;
+      }
+    }
+
+    .extensions-filter {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .extensions-filter__button {
+      all: unset;
+      padding: 0.35rem 1rem;
+      height: fit-content;
+
+      border-radius: 1.25rem;
+      border: 1px solid var(--neutral-100);
+      background-color: var(--neutral-0);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+
+    .extensions-filter__button:not(.active):hover {
+      opacity: 0.6;
+    }
+
+    .extensions-filter__button.active {
+      background-color: var(--red-700);
+      color: var(--neutral-0);
+
+      &:hover {
+        background-color: var(--red-500);
+      }
+    }
+
+
+    /* Extensions grid */
+    .extensions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+
+
+    }
+
+    /* Extension card */
+    .extension {
+      background-color: var(--neutral-0);
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1rem;
+      border: 1px solid var(--neutral-100);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      border-radius: 0.75rem;
+
+      @media (width < 640px) {
+        height: 175px;
+      }
+    }
+
+
+    .extension__header {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .extension__icon {
+      width: 3.75rem;
+      height: 3.75rem;
+    }
+
+    .extension__title {
+      font-weight: bold;
+      font-size: 1.125rem;
+    }
+
+    .extension__description {
+      font-size: 0.875rem;
+      color: var(--neutral-600);
+
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+      -webkit-line-clamp: 3;
+      -moz-line-clamp: 3;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+      -moz-box-orient: vertical;
+      box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.5;
+      max-height: calc(1.5em * 3);
+    }
+
+    .extension__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .extension__remove-button {
+      padding: 0.5rem 1rem;
+      color: var(--neutral-900);
+      border: 1px solid var(--neutral-300);
+      border-radius: 9999px;
+      cursor: pointer;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+
+      @media (width < 640px) {
+        padding: 0.25rem 0.75rem;
+      }
+    }
+
+    .extension__remove-button:hover {
+      background-color: var(--red-700);
+      color: var(--neutral-0);
+    }
+
+    /* Toggle switch */
+    .toggle {
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .toggle__input {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle__slider {
+      position: relative;
+      width: 2.75rem;
+      height: 1.5rem;
+      background-color: var(--neutral-300);
+      border-radius: 9999px;
+    }
+
+    .toggle__slider::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      background-color: white;
+      border: 1px solid var(--neutral-300);
+      border-radius: 50%;
+      height: 1.25rem;
+      width: 1.25rem;
+      transition: all 0.3s;
+    }
+
+    .toggle__input:checked+.toggle__slider {
+      background-color: var(--red-500);
+    }
+
+    .toggle__input:checked+.toggle__slider::after {
+      transform: translateX(1.25rem);
+      border-color: white;
+    }
+
+    .toggle__input:focus-visible+.toggle__slider {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(66, 153, 225, 0.5);
+    }
+
+    .toggle__label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* Footer */
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    /* Responsive layout */
+    @media (max-width: 1024px) {
+      .extensions-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      body {
+        padding: 0 1rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .extensions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .extensions-header {
+        flex-direction: column;
+      }
+    }
+
+    body[data-theme='dark'] {
+
+      /* Header */
+      .header {
+        --logo-color: var(--neutral-0);
+
+        background-color: var(--neutral-800);
+      }
+
+
+
+
+      .header__theme-toggle {
+
+        background-color: var(--neutral-700);
+      }
+
+      .header__theme-toggle:hover {
+        background-color: var(--neutral-600);
+      }
+
+
+
+
+
+      .extensions-filter__button {
+
+        background-color: var(--neutral-700);
+        box-shadow: 0 1px 3px hsla(0, 0, 100%, 0.1);
+        border: 1px solid var(--neutral-600);
+        color: var(--neutral-100);
+      }
+
+      .extensions-filter__button:not(.active):hover {
+        background-color: var(--neutral-600);
+        opacity: 1;
+      }
+
+      .extensions-filter__button.active {
+        background-color: var(--red-400);
+        color: var(--neutral-900);
+
+        &:hover {
+          background-color: var(--red-500);
+        }
+      }
+
+
+      /* Extension card */
+      .extension {
+        background-color: var(--neutral-800);
+
+        border: 1px solid var(--neutral-700);
+        box-shadow: 0 1px 3px hsla(0, 0, 100%, 0.1);
+
+      }
+
+
+      .extension__header {
+        color: var(--neutral-0);
+      }
+
+
+      .extension__description {
+        color: var(--neutral-300);
+      }
+
+      .extension__remove-button {
+        color: var(--neutral-0);
+        border: 1px solid var(--neutral-600);
+        box-shadow: 0 1px 2px hsla(0, 0, 100%, 0.05);
+      }
+
+      .extension__remove-button:hover {
+        background-color: var(--red-400);
+        color: var(--neutral-900);
+      }
+
+      .toggle__slider {
+
+        background-color: var(--neutral-600);
+      }
+
+      .toggle__slider::after {
+
+        background-color: white;
+        border: 1px solid var(--neutral-600);
+
+      }
+
+      .toggle__input:checked+.toggle__slider {
+        background-color: var(--red-500);
+      }
+
+      .toggle__input:checked+.toggle__slider::after {
+        transform: translateX(1.25rem);
+        border-color: white;
+      }
+
+      .toggle__input:focus-visible+.toggle__slider {
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(66, 153, 225, 0.5);
+      }
+
+
+      /* Footer */
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+        margin-top: 2rem;
+      }
+
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+
+
+    }
+  </style>
+</head>
+
+<body data-theme="dark">
+  <header class="header">
+    <a href="./" class="header__link">
+      <h2 class="header__heading">
+        <svg xmlns="http://www.w3.org/2000/svg" width="179" height="41" fill="none" viewBox="0 0 179 41">
+          <g clip-path="url(#a)">
+            <path fill="#C7231A" fill-rule="evenodd"
+              d="M13.715.516c-2.257 0-4.42.896-6.016 2.492L0 10.707v3.524c0 2.49 1.07 4.73 2.774 6.285A8.485 8.485 0 0 0 0 26.802v3.524l7.699 7.698A8.507 8.507 0 0 0 20 37.742a8.508 8.508 0 0 0 12.301.282L40 30.326v-3.524c0-2.49-1.07-4.73-2.774-6.286A8.485 8.485 0 0 0 40 14.231v-3.524l-7.699-7.7A8.508 8.508 0 0 0 20 3.29 8.485 8.485 0 0 0 13.715.516Zm12.044 20a8.528 8.528 0 0 1-.282-.27L20 14.77l-5.477 5.477a8.528 8.528 0 0 1-.282.27c.096.087.19.177.282.269L20 26.262l5.477-5.476c.092-.093.186-.182.282-.27Zm-3.537 9.81v1.682a4.063 4.063 0 0 0 6.936 2.874l6.398-6.397v-1.683a4.063 4.063 0 0 0-6.937-2.874l-6.397 6.398Zm-4.444 0-6.397-6.398a4.063 4.063 0 0 0-6.937 2.873v1.684l6.397 6.397a4.063 4.063 0 0 0 6.937-2.873v-1.683Zm0-21.302v1.683l-6.397 6.397a4.063 4.063 0 0 1-6.937-2.873v-1.683l6.397-6.397a4.063 4.063 0 0 1 6.937 2.873Zm10.841 8.08-6.397-6.397V9.024a4.063 4.063 0 0 1 6.936-2.873l6.398 6.397v1.683a4.063 4.063 0 0 1-6.937 2.873Z"
+              clip-rule="evenodd" />
+          </g>
+          <path style="fill:var(--logo-color,#091540)"
+            d="M54.318 29V12.2h11.484v3.096H57.87v3.6h6.72v2.868h-6.72v4.104h8.028V29h-11.58Zm12.818.024 4.368-6.036-4.14-6.108h4.428l2.148 3.684 2.088-3.684h4.32l-4.02 6.036L80.66 29h-4.488l-2.352-3.696-2.388 3.66-4.296.06Zm20.293.336c-1.296 0-2.32-.364-3.072-1.092-.744-.736-1.116-1.844-1.116-3.324V13.388h3.504v3.492h3.012v2.808h-3.012v4.62c0 .712.148 1.212.444 1.5.296.288.692.432 1.188.432.256 0 .504-.028.744-.084.248-.064.476-.152.684-.264l.492 2.76c-.36.2-.792.368-1.296.504a5.92 5.92 0 0 1-1.572.204Zm-6.648-9.672V16.88h2.808v2.808H80.78Zm17.126 9.672c-1.32 0-2.48-.268-3.48-.804a5.853 5.853 0 0 1-2.34-2.244c-.56-.96-.84-2.084-.84-3.372 0-.936.16-1.796.48-2.58a6.052 6.052 0 0 1 1.368-2.028A6.203 6.203 0 0 1 95.171 17c.8-.32 1.676-.48 2.628-.48 1.048 0 1.976.184 2.784.552a5.43 5.43 0 0 1 2.028 1.548c.536.656.908 1.428 1.116 2.316.216.888.236 1.852.06 2.892h-9.288c0 .56.144 1.048.432 1.464.296.416.708.744 1.236.984.536.232 1.16.348 1.872.348.704 0 1.376-.096 2.016-.288a6.426 6.426 0 0 0 1.812-.876l1.164 2.4c-.384.296-.864.56-1.44.792-.576.224-1.188.396-1.836.516a9.422 9.422 0 0 1-1.848.192Zm-3.204-7.944h5.724c-.024-.712-.276-1.276-.756-1.692-.472-.416-1.124-.624-1.956-.624-.832 0-1.524.208-2.076.624-.544.416-.856.98-.936 1.692ZM105.83 29V16.88h3.504v1.368c.464-.608 1.012-1.048 1.644-1.32a5.072 5.072 0 0 1 2.004-.408c1.128 0 2.056.224 2.784.672.736.44 1.28 1.012 1.632 1.716.36.704.54 1.444.54 2.22V29h-3.504v-6.78c0-.768-.216-1.38-.648-1.836-.424-.456-1.04-.684-1.848-.684-.512 0-.964.116-1.356.348-.392.224-.7.54-.924.948-.216.408-.324.88-.324 1.416V29h-3.504Zm19.29.348c-1.08 0-2.076-.14-2.988-.42-.912-.288-1.692-.68-2.34-1.176l1.14-2.448a8.333 8.333 0 0 0 2.052 1.02c.736.24 1.444.36 2.124.36.672 0 1.188-.1 1.548-.3.368-.208.552-.504.552-.888 0-.344-.164-.596-.492-.756-.32-.168-.944-.348-1.872-.54-1.6-.288-2.768-.74-3.504-1.356-.736-.624-1.104-1.48-1.104-2.568 0-.768.212-1.444.636-2.028.432-.584 1.024-1.036 1.776-1.356.752-.328 1.616-.492 2.592-.492.96 0 1.864.132 2.712.396.856.256 1.588.616 2.196 1.08l-1.104 2.46a5.34 5.34 0 0 0-1.104-.672 6.35 6.35 0 0 0-1.296-.444 5.43 5.43 0 0 0-1.32-.168c-.584 0-1.056.1-1.416.3-.36.192-.54.464-.54.816 0 .352.164.612.492.78.328.168.94.352 1.836.552 1.672.352 2.86.82 3.564 1.404.712.576 1.068 1.388 1.068 2.436 0 .808-.22 1.512-.66 2.112-.432.6-1.04 1.068-1.824 1.404-.776.328-1.684.492-2.724.492Zm7.413-.348V16.88h3.504V29h-3.504Zm1.752-14.04a2.26 2.26 0 0 1-1.512-.54c-.424-.368-.636-.856-.636-1.464 0-.616.212-1.104.636-1.464a2.23 2.23 0 0 1 1.512-.552 2.23 2.23 0 0 1 1.512.552c.424.36.636.848.636 1.464 0 .608-.212 1.096-.636 1.464a2.26 2.26 0 0 1-1.512.54Zm10.362 14.4c-1.304 0-2.46-.292-3.468-.876a6.504 6.504 0 0 1-2.376-2.328 6.28 6.28 0 0 1-.852-3.216c0-.856.164-1.668.492-2.436a6.302 6.302 0 0 1 1.392-2.052c.6-.6 1.308-1.072 2.124-1.416.816-.344 1.712-.516 2.688-.516 1.304 0 2.456.292 3.456.876a6.38 6.38 0 0 1 2.364 2.34c.576.968.864 2.036.864 3.204 0 .848-.164 1.66-.492 2.436a6.439 6.439 0 0 1-1.392 2.064 6.547 6.547 0 0 1-2.112 1.404c-.816.344-1.712.516-2.688.516Zm0-3.036c.616 0 1.168-.136 1.656-.408.488-.28.872-.672 1.152-1.176.28-.512.42-1.112.42-1.8 0-.696-.14-1.296-.42-1.8a2.854 2.854 0 0 0-1.14-1.164c-.488-.28-1.044-.42-1.668-.42-.624 0-1.184.14-1.68.42-.488.272-.872.66-1.152 1.164-.272.504-.408 1.104-.408 1.8s.14 1.296.42 1.8c.28.504.664.896 1.152 1.176.488.272 1.044.408 1.668.408ZM153.235 29V16.88h3.504v1.368c.464-.608 1.012-1.048 1.644-1.32a5.072 5.072 0 0 1 2.004-.408c1.128 0 2.056.224 2.784.672.736.44 1.28 1.012 1.632 1.716.36.704.54 1.444.54 2.22V29h-3.504v-6.78c0-.768-.216-1.38-.648-1.836-.424-.456-1.04-.684-1.848-.684-.512 0-.964.116-1.356.348-.392.224-.7.54-.924.948-.216.408-.324.88-.324 1.416V29h-3.504Zm19.291.348c-1.08 0-2.076-.14-2.988-.42-.912-.288-1.692-.68-2.34-1.176l1.14-2.448a8.333 8.333 0 0 0 2.052 1.02c.736.24 1.444.36 2.124.36.672 0 1.188-.1 1.548-.3.368-.208.552-.504.552-.888 0-.344-.164-.596-.492-.756-.32-.168-.944-.348-1.872-.54-1.6-.288-2.768-.74-3.504-1.356-.736-.624-1.104-1.48-1.104-2.568 0-.768.212-1.444.636-2.028.432-.584 1.024-1.036 1.776-1.356.752-.328 1.616-.492 2.592-.492.96 0 1.864.132 2.712.396.856.256 1.588.616 2.196 1.08l-1.104 2.46a5.34 5.34 0 0 0-1.104-.672 6.35 6.35 0 0 0-1.296-.444 5.43 5.43 0 0 0-1.32-.168c-.584 0-1.056.1-1.416.3-.36.192-.54.464-.54.816 0 .352.164.612.492.78.328.168.94.352 1.836.552 1.672.352 2.86.82 3.564 1.404.712.576 1.068 1.388 1.068 2.436 0 .808-.22 1.512-.66 2.112-.432.6-1.04 1.068-1.824 1.404-.776.328-1.684.492-2.724.492Z" />
+          <defs>
+            <clipPath id="a">
+              <path fill="#fff" d="M0 0h40v41H0z" />
+            </clipPath>
+          </defs>
+        </svg>
+      </h2>
+    </a>
+    <button id="themeToggler" class="header__theme-toggle">
+      <svg class="theme-toggle__icon theme-toggle__icon--light" xmlns="http://www.w3.org/2000/svg" width="22"
+        height="22" fill="none" viewBox="0 0 22 22">
+        <g clip-path="url(#a)">
+          <path stroke="#091540" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.98"
+            d="M20.125 11.877A7.333 7.333 0 1 1 10.124 1.875a9.168 9.168 0 1 0 10.001 10.002Z" />
+        </g>
+        <defs>
+          <clipPath id="a">
+            <path fill="#fff" d="M0 0h22v22H0z" />
+          </clipPath>
+        </defs>
+      </svg>
+      <svg class="theme-toggle__icon theme-toggle__icon--dark" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+        fill="none" viewBox="0 0 22 22">
+        <g clip-path="url(#a)">
+          <path stroke="#FBFDFE" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.98"
+            d="M11 1.833v1.834m0 14.666v1.834M3.667 11H1.833m3.955-5.212L4.492 4.492m11.72 1.296 1.297-1.296M5.788 16.215l-1.296 1.296m11.72-1.296 1.297 1.296M20.167 11h-1.834m-2.75 0a4.583 4.583 0 1 1-9.167 0 4.583 4.583 0 0 1 9.167 0Z" />
+        </g>
+        <defs>
+          <clipPath id="a">
+            <path fill="#fff" d="M0 0h22v22H0z" />
+          </clipPath>
+        </defs>
+      </svg>
+    </button>
+  </header>
+  <main class="main">
+    <div class="extensions-header">
+      <h1 class="extensions-header__title">Extensions List</h1>
+      <div class="extensions-filter" data-filter="all">
+        <button type="button" class="extensions-filter__button active" data-filter-name="all">All</button>
+        <button type="button" class="extensions-filter__button" data-filter-name="active">Active</button>
+        <button type="button" class="extensions-filter__button" data-filter-name="inactive">Inactive</button>
+      </div>
+    </div>
+
+    <section class="extensions-grid">
+      <article class="extension">
+        <div class="extension__header">
+          <img class="extension__icon" src="./assets/images/logo-devlens.svg" alt="" />
+          <div class="extension__info">
+            <h3 class="extension__title">DevLens</h3>
+            <p class="extension__description">Quickly inspect page layouts and visualize element boundaries.</p>
+          </div>
+        </div>
+        <div class="extension__footer">
+          <button class="extension__remove-button">Remove</button>
+          <label class="toggle">
+            <input type="checkbox" class="toggle__input">
+            <div class="toggle__slider"></div>
+            <span class="toggle__label">Toggle me</span>
+          </label>
+        </div>
+      </article>
+
+      <article class="extension">
+        <div class="extension__header">
+          <img class="extension__icon" src="" alt="" />
+          <div class="extension__info">
+            <h3 class="extension__title">StyleSpy</h3>
+            <p class="extension__description">Instantly analyze and copy CSS from any webpage element.</p>
+          </div>
+        </div>
+        <div class="extension__footer">
+          <button class="extension__remove-button">Remove</button>
+          <label class="toggle">
+            <input type="checkbox" class="toggle__input">
+            <div class="toggle__slider"></div>
+            <span class="toggle__label">Toggle me</span>
+          </label>
+        </div>
+      </article>
+
+      <article class="extension">
+        <div class="extension__header">
+          <img class="extension__icon" src="" alt="" />
+          <div class="extension__info">
+            <h3 class="extension__title">SpeedBoost</h3>
+            <p class="extension__description">Optimizes browser resource usage to accelerate page loading.</p>
+          </div>
+        </div>
+        <div class="extension__footer">
+          <button class="extension__remove-button">Remove</button>
+          <label class="toggle">
+            <input type="checkbox" class="toggle__input">
+            <div class="toggle__slider"></div>
+            <span class="toggle__label">Toggle me</span>
+          </label>
+        </div>
+      </article>
+
+      <article class="extension">
+        <div class="extension__header">
+          <img class="extension__icon" src="" alt="" />
+          <div class="extension__info">
+            <h3 class="extension__title">JSONWizard</h3>
+            <p class="extension__description">Formats, validates, and prettifies JSON responses in-browser.</p>
+          </div>
+        </div>
+        <div class="extension__footer">
+          <button class="extension__remove-button">Remove</button>
+          <label class="toggle">
+            <input type="checkbox" class="toggle__input">
+            <div class="toggle__slider"></div>
+            <span class="toggle__label">Toggle me</span>
+          </label>
+        </div>
+      </article>
+
+      <article class="extension">
+        <div class="extension__header">
+          <img class="extension__icon" src="" alt="" />
+          <div class="extension__info">
+            <h3 class="extension__title">TabMaster Pro</h3>
+            <p class="extension__description">Organizes browser tabs into groups and sessions.</p>
+          </div>
+        </div>
+        <div class="extension__footer">
+          <button class="extension__remove-button">Remove</button>
+          <label class="toggle">
+            <input type="checkbox" class="toggle__input">
+            <div class="toggle__slider"></div>
+            <span class="toggle__label">Toggle me</span>
+          </label>
+        </div>
+      </article>
+
+      <article class="extension">
+        <div class="extension__header">
+          <img class="extension__icon" src="" alt="" />
+          <div class="extension__info">
+            <h3 class="extension__title">ViewportBuddy</h3>
+            <p class="extension__description">Simulates various screen resolutions directly within the browser.</p>
+          </div>
+        </div>
+        <div class="extension__footer">
+          <button class="extension__remove-button">Remove</button>
+          <label class="toggle">
+            <input type="checkbox" class="toggle__input">
+            <div class="toggle__slider"></div>
+            <span class="toggle__label">Toggle me</span>
+          </label>
+        </div>
+      </article>
+
+      <article class="extension">
+        <div class="extension__header">
+          <img class="extension__icon" src="" alt="" />
+          <div class="extension__info">
+            <h3 class="extension__title">Markup Notes</h3>
+            <p class="extension__description">Enables annotation and notes directly onto webpages for collaborative
+              debugging.</p>
+          </div>
+        </div>
+        <div class="extension__footer">
+          <button class="extension__remove-button">Remove</button>
+          <label class="toggle">
+            <input type="checkbox" class="toggle__input">
+            <div class="toggle__slider"></div>
+            <span class="toggle__label">Toggle me</span>
+          </label>
+        </div>
+      </article>
+
+      <article class="extension">
+        <div class="extension__header">
+          <img class="extension__icon" src="" alt="" />
+          <div class="extension__info">
+            <h3 class="extension__title">GridGuides</h3>
+            <p class="extension__description">Overlay customizable grids and alignment guides on any webpage.</p>
+          </div>
+        </div>
+        <div class="extension__footer">
+          <button class="extension__remove-button">Remove</button>
+          <label class="toggle">
+            <input type="checkbox" class="toggle__input">
+            <div class="toggle__slider"></div>
+            <span class="toggle__label">Toggle me</span>
+          </label>
+        </div>
+      </article>
+
+      <article class="extension">
+        <div class="extension__header">
+          <img class="extension__icon" src="" alt="" />
+          <div class="extension__info">
+            <h3 class="extension__title">Palette Picker</h3>
+            <p class="extension__description">Instantly extracts color palettes from any webpage.</p>
+          </div>
+        </div>
+        <div class="extension__footer">
+          <button class="extension__remove-button">Remove</button>
+          <label class="toggle">
+            <input type="checkbox" class="toggle__input">
+            <div class="toggle__slider"></div>
+            <span class="toggle__label">Toggle me</span>
+          </label>
+        </div>
+      </article>
+
+      <article class="extension">
+        <div class="extension__header">
+          <img class="extension__icon" src="" alt="" />
+          <div class="extension__info">
+            <h3 class="extension__title">LinkChecker</h3>
+            <p class="extension__description">Scans and highlights broken links on any page.</p>
+          </div>
+        </div>
+        <div class="extension__footer">
+          <button class="extension__remove-button">Remove</button>
+          <label class="toggle">
+            <input type="checkbox" class="toggle__input">
+            <div class="toggle__slider"></div>
+            <span class="toggle__label">Toggle me</span>
+          </label>
+        </div>
+      </article>
+
+      <article class="extension">
+        <div class="extension__header">
+          <img class="extension__icon" src="" alt="" />
+          <div class="extension__info">
+            <h3 class="extension__title">DOM Snapshot</h3>
+            <p class="extension__description">Capture and export DOM structures quickly.</p>
+          </div>
+        </div>
+        <div class="extension__footer">
+          <button class="extension__remove-button">Remove</button>
+          <label class="toggle">
+            <input type="checkbox" class="toggle__input">
+            <div class="toggle__slider"></div>
+            <span class="toggle__label">Toggle me</span>
+          </label>
+        </div>
+      </article>
+
+      <article class="extension">
+        <div class="extension__header">
+          <img class="extension__icon" src="" alt="" />
+          <div class="extension__info">
+            <h3 class="extension__title">ConsolePlus</h3>
+            <p class="extension__description">Enhanced developer console with advanced filtering and logging.</p>
+          </div>
+        </div>
+        <div class="extension__footer">
+          <button class="extension__remove-button">Remove</button>
+          <label class="toggle">
+            <input type="checkbox" class="toggle__input">
+            <div class="toggle__slider"></div>
+            <span class="toggle__label">Toggle me</span>
+          </label>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const extensionsList = [];
+
+    /**
+     * Initializes the extensions in the UI.
+     * @param {Object[]} extensions - Array of extension objects to initialize.
+     * @param {string} extensions[].logo - The URL or path to the extension's logo image.
+     * @param {string} extensions[].name - The name of the extension.
+     * @param {string} extensions[].description - A brief description of what the extension does.
+     * @param {Boolean} extensions[].isActive - Indicates whether the extension is currently active.
+     * @returns {void}
+     */
+    function initializeExtensions(extensions) {
+      if (extensions === undefined || extensions.length === 0) {
+        alert("No Extensions found");
+        return;
+      }
+
+      // Store extensions data in the global array
+      extensionsList.push(...extensions);
+
+      // Clear existing content in extensions grid
+      const extensionsGrid = document.querySelector('.extensions-grid');
+      extensionsGrid.innerHTML = '';
+
+      // Render each extension
+      extensions.forEach(extension => {
+        const extensionElement = createExtensionBox(extension);
+        extensionsGrid.appendChild(extensionElement);
+      });
+
+      // Initialize filter buttons
+      initializeFilterButtons();
+    }
+
+    /**
+     * Creates an extension card element.
+     * @param {Object} extension - Extension object to initialize.
+     * @param {string} extension.logo - The URL or path to the extension's logo image.
+     * @param {string} extension.name - The name of the extension.
+     * @param {string} extension.description - A brief description of what the extension does.
+     * @param {Boolean} extension.isActive - Indicates whether the extension is currently active.
+     * @returns {HTMLElement} - The created extension element
+     */
+    function createExtensionBox(extension) {
+      // Create article element with class extension
+      const article = document.createElement('article');
+      article.className = 'extension';
+      article.dataset.extensionId = extension.id || extension.name.toLowerCase().replace(/\s/g, '-');
+      article.dataset.active = extension.isActive ? 'true' : 'false';
+
+      // Create extension header
+      const header = document.createElement('div');
+      header.className = 'extension__header';
+
+      // Create extension icon
+      const icon = document.createElement('img');
+      icon.className = 'extension__icon';
+      icon.src = extension.logo || '';
+      icon.alt = `${extension.name} icon`;
+
+      // Create extension info container
+      const info = document.createElement('div');
+      info.className = 'extension__info';
+
+      // Create extension title
+      const title = document.createElement('h3');
+      title.className = 'extension__title';
+      title.textContent = extension.name;
+
+      // Create extension description
+      const description = document.createElement('p');
+      description.className = 'extension__description';
+      description.textContent = extension.description;
+
+      // Append title and description to info container
+      info.appendChild(title);
+      info.appendChild(description);
+
+      // Append icon and info to header
+      header.appendChild(icon);
+      header.appendChild(info);
+
+      // Create extension footer
+      const footer = document.createElement('div');
+      footer.className = 'extension__footer';
+
+      // Create remove button
+      const removeButton = document.createElement('button');
+      removeButton.className = 'extension__remove-button';
+      removeButton.textContent = 'Remove';
+
+      // Add event listener to remove button
+      removeButton.addEventListener('click', () => {
+        removeExtension(article, extension);
+      });
+
+      // Create toggle switch
+      const toggle = document.createElement('label');
+      toggle.className = 'toggle';
+
+      // Create toggle input
+      const toggleInput = document.createElement('input');
+      toggleInput.className = 'toggle__input';
+      toggleInput.type = 'checkbox';
+      toggleInput.checked = extension.isActive;
+
+      // Add event listener to toggle input
+      toggleInput.addEventListener('change', (event) => {
+        toggleExtension(extension, event.target.checked, article);
+      });
+
+      // Create toggle slider
+      const toggleSlider = document.createElement('div');
+      toggleSlider.className = 'toggle__slider';
+
+      // Create toggle label (hidden)
+      const toggleLabel = document.createElement('span');
+      toggleLabel.className = 'toggle__label';
+      toggleLabel.textContent = 'Toggle extension';
+
+      // Append toggle elements
+      toggle.appendChild(toggleInput);
+      toggle.appendChild(toggleSlider);
+      toggle.appendChild(toggleLabel);
+
+      // Append remove button and toggle to footer
+      footer.appendChild(removeButton);
+      footer.appendChild(toggle);
+
+      // Append header and footer to article
+      article.appendChild(header);
+      article.appendChild(footer);
+
+      return article;
+    }
+
+    /**
+     * Removes an extension from the UI and the extensions list.
+     * @param {HTMLElement} element - The extension element to remove.
+     * @param {Object} extension - The extension data object.
+     */
+    function removeExtension(element, extension) {
+      // Remove all event listeners by cloning and replacing the element
+      const elementClone = element.cloneNode(true);
+
+      // Remove the element from the DOM
+      if (element.parentNode) {
+        element.parentNode.removeChild(element);
+      }
+
+      // Remove from extensions list
+      const index = extensionsList.findIndex(ext =>
+        ext.id === extension.id || ext.name === extension.name
+      );
+
+      if (index !== -1) {
+        extensionsList.splice(index, 1);
+      }
+    }
+
+    /**
+     * Toggles the active state of an extension.
+     * @param {Object} extension - The extension to toggle.
+     * @param {boolean} isActive - Whether the extension should be active.
+     * @param {HTMLElement} element - The extension element in the DOM.
+     */
+    function toggleExtension(extension, isActive, element) {
+      // Update extension object
+      extension.isActive = isActive;
+
+      // Update data attribute on element
+      element.dataset.active = isActive ? 'true' : 'false';
+    }
+
+    /**
+     * Initialize filter buttons functionality
+     */
+    function initializeFilterButtons() {
+      const filterButtons = document.querySelectorAll('.extensions-filter__button');
+      const extensionsGrid = document.querySelector('.extensions-grid');
+
+      filterButtons.forEach(button => {
+
+        // Add new event listener
+        button.addEventListener('click', () => {
+          // Remove active class from all buttons
+          filterButtons.forEach(btn => { btn.classList.remove('active'); });
+          // Add active class to clicked button
+          button.classList.add('active');
+
+          // Get filter type
+          const filterType = button.dataset.filterName;
+
+          // Update data-filter attribute on filter container
+          const filterContainer = document.querySelector('.extensions-filter');
+          filterContainer.dataset.filter = filterType;
+
+          filterExtensions(filterType);
+        });
+      });
+    }
+
+    /**
+     * Filters extensions based on the selected filter type.
+     * @param {string} filterType - The type of filter to apply ('all', 'active', or 'inactive').
+     */
+    function filterExtensions(filterType) {
+      const extensionElements = document.querySelectorAll('.extension');
+
+      extensionElements.forEach(element => {
+        const isActive = element.dataset.active === 'true';
+
+        if (filterType === 'all' ||
+          (filterType === 'active' && isActive) ||
+          (filterType === 'inactive' && !isActive)) {
+          element.style.display = '';
+        } else {
+          element.style.display = 'none';
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const themeToggler = document.getElementById('themeToggler');
+
+      // Function to set the theme
+      const setTheme = (theme) => {
+        document.body.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+      };
+
+      // Check localStorage or system preference to set the initial theme
+      const storedTheme = localStorage.getItem('theme');
+      if (storedTheme) {
+        setTheme(storedTheme);
+      } else {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setTheme(prefersDark ? 'dark' : 'light');
+      }
+
+      // Add click event listener to toggle the theme
+      themeToggler.addEventListener('click', () => {
+        const currentTheme = document.body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
+      });
+    });
+
+    fetch('./data.json').then(response => response.json())
+      .then(data => { initializeExtensions(data) })
+      .catch((e) => { console.error(e) })
+      .finally(() => {
+      })
+  </script>
+</body>
+
+</html>
